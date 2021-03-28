@@ -1,8 +1,11 @@
 import React from "react";
+import SavedBooksBox from "../components/SavedBooksBox";
 
 function Saved() {
     return (
-        <div></div>
+        <div>
+            <SavedBooksBox />
+        </div>
     );
 }
 
