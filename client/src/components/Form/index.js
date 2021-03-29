@@ -8,8 +8,8 @@ export function Input(props) {
     );
 }
 
-export function FormBtn() {
+export function FormBtn(props) {
     return (
-        <button className="btn btn-success" style={{ float: "right" }}>Search</button>
+        <button {...props} className="btn btn-success" style={{ float: "right" }}>Search</button>
     );
 }
