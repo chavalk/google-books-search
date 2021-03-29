@@ -1,11 +1,19 @@
 import React from "react";
-import SearchBox from "../components/SearchBox";
 import ResultsBox from "../components/ResultsBox";
+import Jumbotron from "../components/Jumbotron";
+import { Input, FormBtn } from "../components/Form";
 
 function Search() {
     return (
         <div>
-            <SearchBox />
+            <Jumbotron>
+                <p className="lead">Book Search</p>
+                <p className="lead">Book</p>
+                <form>
+                    <Input />
+                    <FormBtn />
+                </form>
+            </Jumbotron>
             <ResultsBox />
         </div>
     );
