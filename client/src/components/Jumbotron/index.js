@@ -1,11 +1,10 @@
 import React from "react";
 
-function Jumbotron() {
+function Jumbotron({ children }) {
     return (
         <div className="jumbotron jumbotron-fluid">
             <div className="container">
-                <h1 className="display-4 text-center">Google Books Search</h1>
-                <p className="lead text-center">Search for and Save Books of Interest</p>
+                {children}
             </div>
         </div>
     );
