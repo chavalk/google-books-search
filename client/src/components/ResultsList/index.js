@@ -1,15 +1,20 @@
 import React from "react";
 
-function ResultsList() {
+function ResultsList(props) {
     return (
-        <div>
-            <p className="lead d-inline">Harry Potter</p>
-            <button className="btn btn-success" style={{ float: "right" }}>Save</button>
-            <button className="btn btn-success mr-1" style={{ float: "right" }}>View</button>
-            <p className="lead">Written by J.K. Rowling</p>
-            <img src="https://via.placeholder.com/200" className="img-thumbnail float-left mr-3" alt="Book"></img>
-            <p className="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        </div>
+        <ul className="list-group">
+            {console.log(props)}
+            {props.results.map(result => (
+                <li className="list-group-item" key={result.id}>
+                    <p className="lead d-inline">{result.volumeInfo.title}</p>
+                    <button className="btn btn-success" style={{ float: "right" }}>Save</button>
+                    <button className="btn btn-success mr-1" style={{ float: "right" }}>View</button>
+                    <p className="lead">Written by {result.volumeInfo.authors}</p>
+                    <img src={result.volumeInfo.imageLinks.smallThumbnail} className="img-thumbnail float-left mr-3" alt="Book"></img>
+                    <p className="lead">{result.volumeInfo.description}</p>
+                </li>
+            ))}
+        </ul>
     );
 }
 

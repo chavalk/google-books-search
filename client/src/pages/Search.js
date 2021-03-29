@@ -12,7 +12,7 @@ function Search() {
     // Sends request to Google Books API based on user's input
     function searchGoogleBooks(query) {
         API.search(query)
-            .then(res => setResults(res.data))
+            .then(res => setResults(res.data.items))
             .catch(err => console.log(err));
     };
 
@@ -45,7 +45,11 @@ function Search() {
             <Jumbotron>
                 <p className="lead">Results</p>
                 <Jumbotron>
-                    <ResultsList />
+                    {results.length ? (
+                        <ResultsList results={results} />
+                    ) : (
+                        <h3>No Results to Display</h3>
+                    )}   
                 </Jumbotron>
             </Jumbotron>
         </div>
