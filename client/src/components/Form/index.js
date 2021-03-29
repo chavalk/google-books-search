@@ -2,9 +2,9 @@ import React from "react";
 
 // This file exports the Input and FormBtn components
 
-export function Input() {
+export function Input(props) {
     return (
-        <input className="form-control mb-3" name="search" placeholder="Search a Book"></input>
+        <input className="form-control mb-3" name="search" placeholder="Search a Book" {...props}></input>
     );
 }
 
