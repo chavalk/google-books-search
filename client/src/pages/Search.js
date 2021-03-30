@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Jumbotron from "../components/Jumbotron";
 import { Input, FormBtn } from "../components/Form";
 import API from "../utils/API";
+import SaveBtn from "../components/SaveBtn";
 
 function Search() {
     // Setting component's initial state
@@ -13,6 +14,24 @@ function Search() {
         API.search(query)
             .then(res => setResults(res.data.items))
             .catch(err => console.log(err));
+    };
+
+    // Saves a book to the database by filtering out the selected book using the id from the Google Books API call
+    function saveBook(id) {
+        const bookToSave = results.filter(result => result.id === id);
+        const [ bookObj ] = bookToSave;
+        const [ authors ] = bookObj.volumeInfo.authors;
+        console.log(authors)
+        console.log(bookObj);
+        API.saveBook({
+            title: bookObj.volumeInfo.title,
+            authors: authors,
+            description: bookObj.volumeInfo.description,
+            image: bookObj.volumeInfo.imageLinks.smallThumbnail,
+            link: bookObj.volumeInfo.infoLink
+        })
+        .then(alert("The book has been saved!"))
+        .catch(err => console.log(err));
     };
 
     // Handles updating component state when the user types into the input field
@@ -49,7 +68,7 @@ function Search() {
                             {results.map(result => (
                                 <li className="list-group-item" key={result.id}>
                                     <p className="lead d-inline">{result.volumeInfo.title}</p>
-                                    <button className="btn btn-success" style={{ float: "right" }} >Save</button>
+                                    <SaveBtn onClick={() => saveBook(result.id)}  />
                                     <a className="btn btn-success mr-1" style={{ float: "right" }} href={result.volumeInfo.infoLink} target="_blank" rel="noreferrer">View</a>
                                     <p className="lead">Written by {result.volumeInfo.authors}</p>
                                     <img src={result.volumeInfo.imageLinks.smallThumbnail} className="img-thumbnail float-left mr-3" alt="Book"></img>
