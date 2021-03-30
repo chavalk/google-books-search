@@ -28,13 +28,13 @@ function Saved() {
                 {books.length ? (
                     <ul className="list-group">
                         {books.map(book => (
-                            <li className="list-group-item" key={book.id}>
-                                <p className="lead d-inline">{book.volumeInfo.title}</p>
+                            <li className="list-group-item" key={book._id}>
+                                <p className="lead d-inline">{book.title}</p>
                                 <button className="btn btn-success" style={{ float: "right" }} >Save</button>
-                                <a className="btn btn-success mr-1" style={{ float: "right" }} href={book.volumeInfo.infoLink} target="_blank" rel="noreferrer">View</a>
-                                <p className="lead">Written by {book.volumeInfo.authors}</p>
-                                <img src={book.volumeInfo.imageLinks.smallThumbnail} className="img-thumbnail float-left mr-3" alt="Book"></img>
-                                <p className="lead">{book.volumeInfo.description}</p>
+                                <a className="btn btn-success mr-1" style={{ float: "right" }} href={book.link} target="_blank" rel="noreferrer">View</a>
+                                <p className="lead">Written by {book.authors}</p>
+                                <img src={book.image} className="img-thumbnail float-left mr-3" alt="Book"></img>
+                                <p className="lead">{book.description}</p>
                             </li>
                         ))}
                     </ul>
