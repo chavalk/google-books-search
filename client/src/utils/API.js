@@ -4,9 +4,13 @@ require("dotenv").config();
 const BASEURL = "https://www.googleapis.com/books/v1/volumes?q=";
 const APIKEY = process.env.API_KEY;
 
-// Export an object with a "search" method that searches the Google Books API for the passed query
 export default {
+    // Searches the Google Books API for the passed query
     search: function(query) {
         return axios.get(BASEURL + query.search + APIKEY);
+    },
+    // Saves a book to the database
+    saveBook: function(bookData) {
+        return axios.post("/api/books", bookData);
     }
 };

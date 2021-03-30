@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import ResultsList from "../components/ResultsList";
 import Jumbotron from "../components/Jumbotron";
 import { Input, FormBtn } from "../components/Form";
 import API from "../utils/API";
@@ -14,6 +13,21 @@ function Search() {
         API.search(query)
             .then(res => setResults(res.data.items))
             .catch(err => console.log(err));
+    };
+
+    function saveBook(id) {
+        const bookToSave = results.filter(result => result.id === id);
+        const [ bookObj ] = bookToSave;
+        console.log(bookObj);
+        API.saveBook({
+            title: bookObj.volumeInfo.title,
+            authors: bookObj.volumeInfo.authors,
+            description: bookObj.volumeInfo.description,
+            image: bookObj.volumeInfo.imageLinks.smallThumbnail,
+            link: bookObj.volumeInfo.infoLink
+        })
+        .then()
+        .catch(err => console.log(err));
     };
 
     // Handles updating component state when the user types into the input field
@@ -46,7 +60,19 @@ function Search() {
                 <p className="lead">Results</p>
                 <Jumbotron>
                     {results.length ? (
-                        <ResultsList results={results} />
+                        <ul className="list-group">
+                            {console.log(results)}
+                            {results.map(result => (
+                                <li className="list-group-item" key={result.id}>
+                                    <p className="lead d-inline">{result.volumeInfo.title}</p>
+                                    <button className="btn btn-success" style={{ float: "right" }} onClick={() => saveBook(result.id)}>Save</button>
+                                    <a className="btn btn-success mr-1" style={{ float: "right" }} href={result.volumeInfo.infoLink} target="_blank" rel="noreferrer">View</a>
+                                    <p className="lead">Written by {result.volumeInfo.authors}</p>
+                                    <img src={result.volumeInfo.imageLinks.smallThumbnail} className="img-thumbnail float-left mr-3" alt="Book"></img>
+                                    <p className="lead">{result.volumeInfo.description}</p>
+                                </li>
+                            ))}
+                        </ul>
                     ) : (
                         <h3>No Results to Display</h3>
                     )}   
