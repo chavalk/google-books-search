@@ -9,6 +9,10 @@ export default {
     search: function(query) {
         return axios.get(BASEURL + query.search + APIKEY);
     },
+    // Gets all books
+    getBooks: function() {
+        return axios.get("/api/books");
+    },
     // Saves a book to the database
     saveBook: function(bookData) {
         return axios.post("/api/books", bookData);
