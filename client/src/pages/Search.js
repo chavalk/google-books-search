@@ -21,8 +21,7 @@ function Search() {
         const bookToSave = results.filter(result => result.id === id);
         const [ bookObj ] = bookToSave;
         const [ authors ] = bookObj.volumeInfo.authors;
-        console.log(authors)
-        console.log(bookObj);
+        
         API.saveBook({
             title: bookObj.volumeInfo.title,
             authors: authors,
@@ -71,7 +70,11 @@ function Search() {
                                     <SaveBtn onClick={() => saveBook(result.id)}  />
                                     <a className="btn btn-success mr-1" style={{ float: "right" }} href={result.volumeInfo.infoLink} target="_blank" rel="noreferrer">View</a>
                                     <p className="lead">Written by {result.volumeInfo.authors}</p>
-                                    <img src={result.volumeInfo.imageLinks.smallThumbnail} className="img-thumbnail float-left mr-3" alt="Book"></img>
+                                    {result.volumeInfo.imageLinks ? (
+                                        <img src={result.volumeInfo.imageLinks.smallThumbnail} className="img-thumbnail float-left mr-3" alt="Book"></img>
+                                    ) : (
+                                        <img src="https://via.placeholder.com/200" className="img-thumbnail float-left mr-3" alt="Book"></img>
+                                    )}
                                     <p className="lead">{result.volumeInfo.description}</p>
                                 </li>
                             ))}
