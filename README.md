@@ -1,22 +1,14 @@
 # Google Books Search
 
+## Description
+
 An application built to allow the user to search for a book and to save any of the books to be accessed later.
 
 ## What the project does
 
 The project uses the Google Books API to provide results to users based on the query entered. It also allows users to save books to be accessed later and when looking at the saved books, the user can also delete any of the books. Below are some screenshots of the different areas of the page.
 
-Landing page
-
 ![google-books-search](./client/public/images/landing.png)
-
-Results section in landing page
-
-![google-books-search](./client/public/images/results.png)
-
-Saved items in saved page
-
-![google-books-search](./client/public/images/saved.png)
 
 ## Why is the project useful
 
