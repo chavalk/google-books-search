@@ -1,4 +1,6 @@
-# Google Books Search
+# Google-Books-Search
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Description
 
@@ -6,19 +8,42 @@ An application built to allow the user to search for a book and to save any of t
 
 ## What the project does
 
-The project uses the Google Books API to provide results to users based on the query entered. It also allows users to save books to be accessed later and when looking at the saved books, the user can also delete any of the books. Below are some screenshots of the different areas of the page.
+The project uses the Google Books API to provide results to users based on the query entered. It allows users to save books to be accessed later and to click the view button to see the book in the Google Play Store. The user can also delete any saved books by navigating to the savde books page. Below is a GIF showing the navigation of the application.
 
-![google-books-search](./client/public/images/landing.png)
+![google-books-search](./client/public/images/google-books-search.gif)
 
 ## Why is the project useful
 
-Personally the project was a great experience for me on making an application using the MERN stack from scratch. For users, the application is useful in offering an option to search for books from the Google Play store and to be able to save them to keep track of them.
+Personally the project was a great experience for me on making an application using the MERN stack from scratch. For users, the application is useful in offering an option to search for books from the Google Play Store and to be able to save them to keep track of them.
 
 ## How users can get started with the project
 
-Simply navigate to the deployed version listed below to interact with it.
+Simply navigate to the deployed version of the application listed below to interact with it.
 
 https://fierce-stream-28814.herokuapp.com/
+
+## What technologies were used with the project
+
+* React.js
+* React-dom
+* Bootstrap
+* Google Books API
+* React-router-dom
+* HTML5
+* CSS3
+* MVC folder structure
+* Mongoose ORM
+* Express.js
+* Path
+* Axios
+* Dotenv
+* If-env
+* Win-node-env
+* Concurrently
+* Nodemon
+* Node.js
+* Heroku
+* MongoDB
 
 ## Where users can get help with your project
 
