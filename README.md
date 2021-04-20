@@ -29,6 +29,8 @@ https://fierce-stream-28814.herokuapp.com/
 * Bootstrap
 * Google Books API
 * React-router-dom
+* JavaScript
+* JSX
 * HTML5
 * CSS3
 * MVC folder structure
