@@ -25,22 +25,22 @@ https://fierce-stream-28814.herokuapp.com/
 ## What technologies were used with the project
 
 * React.js
-* React-dom
+* React-Dom
 * Bootstrap
 * Google Books API
-* React-router-dom
+* React-Router-Dom
 * JavaScript
 * JSX
 * HTML5
 * CSS3
-* MVC folder structure
+* Model-View-Controller Application Design
 * Mongoose ORM
 * Express.js
 * Path
 * Axios
 * Dotenv
 * If-env
-* Win-node-env
+* Win-Node-Env
 * Concurrently
 * Nodemon
 * Node.js
